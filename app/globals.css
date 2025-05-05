@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 10, 10, 10;
+  
+  /* MoraStore theme colors */
+  --gold: 45, 100%, 60%;
+  --gold-light: 45, 100%, 70%;
+  --gold-dark: 45, 80%, 50%;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 45 100% 60%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 45 80% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 100% 40%;
+    --input: 0 0% 14.9%;
+    --ring: 45 100% 60%;
+    --radius: 0.5rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+  }
+}
+
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(180deg, hsl(45, 100%, 60%) 0%, hsl(45, 80%, 50%) 100%);
+  }
+  
+  .gold-text {
+    background: linear-gradient(90deg, hsl(45, 100%, 70%), hsl(45, 80%, 50%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gold-border {
+    @apply border border-primary/80;
+  }
+  
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-sm border border-primary/20 rounded-lg;
+  }
+  
+  .btn-primary {
+    @apply gold-gradient text-black font-semibold rounded-md px-4 py-2 hover:brightness-110 transition duration-200 shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-foreground border border-primary/50 rounded-md px-4 py-2 hover:border-primary transition duration-200;
+  }
+  
+  .game-card {
+    @apply bg-card border border-primary/30 rounded-lg overflow-hidden hover:border-primary/70 transition-all duration-300 hover:shadow-[0_0_15px_rgba(234,179,8,0.3)];
+  }
+  
+  .shimmer {
+    @apply relative overflow-hidden bg-gray-800/50;
+  }
+  
+  .shimmer::after {
+    @apply absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    content: '';
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    100% {
+      transform: translateX(200%);
+    }
+  }
+}
