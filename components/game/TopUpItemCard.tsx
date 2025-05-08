@@ -42,7 +42,7 @@ const TopUpItemCard = ({ item, isSelected, onSelect }: TopUpItemCardProps) => {
               Rp {item.price.toLocaleString('id-ID')}
             </span>
             <span className="text-primary font-semibold">
-              Rp {item.discountPrice.toLocaleString('id-ID')}
+              Rp {item.discountPrice ? item.discountPrice.toLocaleString('id-ID') : '-'}
             </span>
           </div>
         ) : (
@@ -53,7 +53,7 @@ const TopUpItemCard = ({ item, isSelected, onSelect }: TopUpItemCardProps) => {
         
         {(isSelected || isHovered) && hasDiscount && (
           <div className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-0.5 rounded">
-            {Math.round(((item.price - item.discountPrice) / item.price) * 100)}% OFF
+            {Math.round(((item.price - item.discountPrice!) / item.price) * 100)}% OFF
           </div>
         )}
       </div>

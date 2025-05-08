@@ -11,8 +11,12 @@ interface StatusBadgeProps {
   status: TransactionStatus;
   size?: 'sm' | 'md' | 'lg';
 }
-
-const statusConfig = {
+const statusConfig: Record<TransactionStatus, {
+  color: string;
+  icon: React.ComponentType<any>;
+  text: string;
+  animate?: string;
+}> = {
   pending: {
     color: 'bg-yellow-500/20 text-yellow-500 border-yellow-500/50',
     icon: Clock,
@@ -40,6 +44,7 @@ const statusConfig = {
     text: 'Transaksi Kadaluarsa'
   }
 };
+
 
 const StatusBadge = ({ status, size = 'md' }: StatusBadgeProps) => {
   const config = statusConfig[status];

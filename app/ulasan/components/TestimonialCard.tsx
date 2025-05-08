@@ -1,3 +1,4 @@
+"use client"
 import { Testimonial } from "@/lib/types";
 import RatingStars from "@/components/common/RatingStars";
 import { User } from "lucide-react";

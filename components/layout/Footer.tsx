@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center mb-4">
               <Coins className="h-6 w-6 text-primary mr-2" />
-              <span className="font-bold text-xl gold-text">MoraStore</span>
+              <span className="font-bold text-xl text-white"><span className="gold-text">MORA</span>STORE</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
               Platform top up game online terpercaya dengan harga termurah, proses tercepat, dan layanan 24/7.

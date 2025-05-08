@@ -53,7 +53,7 @@ const PaymentInstructions = ({ transaction }: PaymentInstructionsProps) => {
               <p className="font-mono text-lg font-semibold">{paymentDetails.accountNumber}</p>
             </div>
             <button 
-              onClick={() => copyToClipboard(paymentDetails.accountNumber)}
+              onClick={() => copyToClipboard(paymentDetails.accountNumber ?? "")}
               className="bg-primary/20 hover:bg-primary/30 text-primary p-2 rounded-md transition-colors"
             >
               {copied ? <CheckCircle2 className="h-5 w-5" /> : <ClipboardCopy className="h-5 w-5" />}
